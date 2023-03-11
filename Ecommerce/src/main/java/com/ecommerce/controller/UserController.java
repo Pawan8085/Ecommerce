@@ -108,7 +108,7 @@ public class UserController {
 		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
 	
-	@GetMapping("/user/products/com/{productid}")
+	@PostMapping("/user/products/com/{productid}")
 	public ResponseEntity<Product> addRatingAndCommentHandler(@RequestBody Comment comment, @PathVariable Integer productid) throws ProductException{
 		
 		Product product = userService.addRatingAndComment(productid, comment);
