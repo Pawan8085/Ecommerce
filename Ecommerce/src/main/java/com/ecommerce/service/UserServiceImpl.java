@@ -347,6 +347,12 @@ public class UserServiceImpl implements UserService{
 	}
 
 
+	@Override
+	public List<Product> searchProductAndSort(String keyword, String field, String order) {
+		
+		return productRepository.searchProductAndSortByField(keyword, field, order);
+	}
+
 
 	@Override
 	public Product addRatingAndComment(Integer productid, Comment comment) throws ProductException {
@@ -387,6 +393,9 @@ public class UserServiceImpl implements UserService{
 		 throw new ProductException("Invalid product id "+productid);
 	}
 
+
+
+	
 
 
 

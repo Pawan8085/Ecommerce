@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.exceptions.CartException;
@@ -108,13 +109,23 @@ public class UserController {
 		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
 	
-	@PostMapping("/user/products/com/{productid}")
+	
+	@GetMapping("/user/products/{keyword}/{field}")
+	public ResponseEntity<List<Product>> searchProductAndSortByField(@PathVariable String keyword, @PathVariable String field, @RequestParam(value = "order") String order){
+		
+		List<Product> products = userService.searchProductAndSort(keyword, field, order);
+		
+		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
+	}
+	@GetMapping("/user/products/com/{productid}")
 	public ResponseEntity<Product> addRatingAndCommentHandler(@RequestBody Comment comment, @PathVariable Integer productid) throws ProductException{
 		
 		Product product = userService.addRatingAndComment(productid, comment);
 		
 		return new ResponseEntity<Product>(product, HttpStatus.OK);
 	}
+	
+	
 	
 	
 }

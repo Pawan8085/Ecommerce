@@ -29,5 +29,14 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
     
     @Query("SELECT p FROM Product p WHERE CONCAT(p.productName, p.productPrice, p.productHighlights) LIKE %?1% AND p.productPrice >= ?2 AND p.productPrice <= ?3")
     List<Product> searchProductByKeywordAndPriceRange(String keyword, Integer minPrice, Integer maxPrice);
+    
+    
+    @Query("SELECT p FROM Product p WHERE CONCAT(p.productName, p.productPrice, p.productHighlights) LIKE %?1% ORDER BY "
+            + "CASE WHEN ?2 = 'productName' AND ?3 = 'asc' THEN p.productName END ASC,"
+            + "CASE WHEN ?2 = 'productName' AND ?3 = 'desc' THEN p.productName END DESC,"
+            + "CASE WHEN ?2 = 'productPrice' AND ?3 = 'asc' THEN p.productPrice END ASC,"
+            + "CASE WHEN ?2 = 'productPrice' AND ?3 = 'desc' THEN p.productPrice END DESC")
+    public List<Product> searchProductAndSortByField(String keyword, String field, String order);
+
 
 }
