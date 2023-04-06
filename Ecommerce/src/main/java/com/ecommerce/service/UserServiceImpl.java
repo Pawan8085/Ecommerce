@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.ecommerce.exceptions.CartException;
+import com.ecommerce.exceptions.CommentException;
 import com.ecommerce.exceptions.ProductException;
 import com.ecommerce.model.Admin;
 import com.ecommerce.model.Cart;
@@ -359,6 +360,9 @@ public class UserServiceImpl implements UserService{
 		Optional<Product> optProduct=  productRepository.findById(productid);
 		
 		if(optProduct.isPresent()) {
+			
+			// *Handling Wrong Rating
+			if(comment.getRating()<1 || comment.getRating()>5)throw new CommentException("Invalid Rating!");
 			
 			Product product = optProduct.get();
 			
