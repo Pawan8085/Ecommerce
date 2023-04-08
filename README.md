@@ -1,4 +1,7 @@
 # *Rest Api for Ecommerce application
+### ER Diagram :
+
+![Ecommerce_er](https://user-images.githubusercontent.com/101393436/230717165-fbecb33c-631b-408d-8fa9-0e03a8bb74d5.png)
 
 #### Tech stack :- SpringBoot, Java, Hibernate, MySql, Spring Security
 
