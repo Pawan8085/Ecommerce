@@ -33,8 +33,9 @@ public class MySecurityConfig {
 						"/ecommerce/user/orders",
 						"/ecommerce/user/products",
 						"/ecommerce/user/products/**",
-						"/ecommerce/user/products/*/*",
-						"/ecommerce/user/products/*/*/*",
+						"/ecommerce/user/products/rating/*/*",
+						"/ecommerce/user/products/sort/*/*",
+						"/ecommerce/user/products/price/*/*/*",
 						"/ecommerce/user/products/com/**")
 				.hasAnyAuthority("USER", "ADMIN")
 				.antMatchers("/ecommerce/admin/register", 

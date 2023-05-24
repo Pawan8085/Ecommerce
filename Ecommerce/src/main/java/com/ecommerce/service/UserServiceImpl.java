@@ -107,7 +107,7 @@ public class UserServiceImpl implements UserService{
 					
 					
 					//Updating product details
-					Optional<ProductDetails> optProductDetails = productDetailsRespository.findById(productId);
+					Optional<ProductDetails> optProductDetails = productDetailsRespository.findByProductId(productId);
 					
 					if(optProductDetails.isPresent()) {
 						
@@ -118,14 +118,7 @@ public class UserServiceImpl implements UserService{
 						
 						productDetailsRespository.save(productDetails);
 					}
-					else {
-						ProductDetails pro_details = new ProductDetails();
-						pro_details.setProductId(productId);
-						pro_details.setSold(quantity);
-						pro_details.setTotalRevenue(quantity*product.getProductPrice());
-						productDetailsRespository.save(pro_details);
-						
-					}
+					
 					
 					
 					//updating cart
@@ -247,7 +240,7 @@ public class UserServiceImpl implements UserService{
 						
 						
 						//Updating product details
-						Optional<ProductDetails> optProductDetails = productDetailsRespository.findById(cart.getProductId());
+						Optional<ProductDetails> optProductDetails = productDetailsRespository.findByProductId(cart.getProductId());
 						
 						if(optProductDetails.isPresent()) {
 							
@@ -258,14 +251,7 @@ public class UserServiceImpl implements UserService{
 							
 							productDetailsRespository.save(productDetails);
 						}
-						else {
-							ProductDetails pro_details = new ProductDetails();
-							pro_details.setProductId(cart.getProductId());
-							pro_details.setSold(cart.getProductQuantity());
-							pro_details.setTotalRevenue(cart.getProductPrice()*cart.getProductQuantity());
-							productDetailsRespository.save(pro_details);
-							
-						}
+						
 						
 						cart.setIsOutofStok(product.getIsOutOfStock());
 						

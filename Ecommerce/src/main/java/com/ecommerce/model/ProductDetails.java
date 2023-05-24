@@ -18,6 +18,7 @@ public class ProductDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer productDetailId;
 	private Integer productId;
+	private Integer totalProduct;
 	private Integer sold;
 	private Integer totalRevenue;
 

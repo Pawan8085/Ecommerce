@@ -95,14 +95,14 @@ public class UserController {
 		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
 	
-	@GetMapping("/user/products/{keyword}/{rating}")
+	@GetMapping("/user/products/rating/{keyword}/{rating}")
 	public ResponseEntity<List<Product>> searchProductAndFilterByRatingHandler(@PathVariable String keyword, @PathVariable Integer rating){
 		List<Product> products = userService.searchProductAndFilterByRating(keyword, rating);
 		
 		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
 	
-	@GetMapping("/user/products/{keyword}/{min}/{max}")
+	@GetMapping("/user/products/price/{keyword}/{min}/{max}")
 	public ResponseEntity<List<Product>> searchProductAndFilterByPriceHandler(@PathVariable String keyword, @PathVariable Integer min, @PathVariable Integer max){
 		
 		List<Product> products = userService.searchProductAndFilterByPrice(keyword, min, max);
@@ -110,14 +110,14 @@ public class UserController {
 	}
 	
 	
-	@GetMapping("/user/products/{keyword}/{field}")
+	@GetMapping("/user/products/sort/{keyword}/{field}")
 	public ResponseEntity<List<Product>> searchProductAndSortByField(@PathVariable String keyword, @PathVariable String field, @RequestParam(value = "order") String order){
 		
 		List<Product> products = userService.searchProductAndSort(keyword, field, order);
 		
 		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
-	@GetMapping("/user/products/com/{productid}")
+	@PostMapping("/user/products/com/{productid}")
 	public ResponseEntity<Product> addRatingAndCommentHandler(@RequestBody Comment comment, @PathVariable Integer productid) throws ProductException{
 		
 		Product product = userService.addRatingAndComment(productid, comment);

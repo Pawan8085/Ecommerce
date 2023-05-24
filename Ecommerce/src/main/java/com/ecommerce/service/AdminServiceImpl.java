@@ -120,6 +120,16 @@ public class AdminServiceImpl implements AdminService{
 			product.setCategory(category);
 			productRepository.save(product);
 			
+			ProductDetails productdetails = new ProductDetails();
+			productdetails.setProductId(product.getProductId());
+			productdetails.setTotalProduct(product.getProductStock());
+			productdetails.setSold(0);
+			productdetails.setTotalRevenue(0);
+			
+			productDetialDetailsRespository.save(productdetails);
+			
+			
+			
 			return category;
 				
 		}
@@ -143,7 +153,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public ProductDetails getProductDetails(Integer productId) throws ProductException {
 		
-		Optional<ProductDetails> optProductDetail = productDetialDetailsRespository.findById(productId);
+		Optional<ProductDetails> optProductDetail = productDetialDetailsRespository.findByProductId(productId);
 		
 		if(optProductDetail.isPresent()) {
 			
