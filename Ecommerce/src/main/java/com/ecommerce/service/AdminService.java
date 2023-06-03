@@ -28,5 +28,7 @@ public interface AdminService {
 	
 	ProductDetails getProductDetails(Integer productId)throws ProductException;
 	
+	Product updateProduct(Integer productId, Product product)throws ProductException;
+	
 	
 }

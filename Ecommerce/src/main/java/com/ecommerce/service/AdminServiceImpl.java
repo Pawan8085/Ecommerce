@@ -163,6 +163,25 @@ public class AdminServiceImpl implements AdminService{
 		throw new ProductException("Invalid product id "+productId);
 	}
 
+
+	@Override
+	public Product updateProduct(Integer productId, Product product) throws ProductException {
+		
+		Optional<Product> optProduct = productRepository.findById(productId);
+		
+		if(optProduct.isPresent()) {
+			
+			
+			product.setProductId(productId);
+			productRepository.save(product);
+			
+			return product;
+		}
+		
+		throw new ProductException("Invalid Product id!");
+		
+	}
+
 	
 
 }

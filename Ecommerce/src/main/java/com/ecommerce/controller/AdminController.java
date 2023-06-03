@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -98,6 +99,14 @@ public class AdminController {
 		ProductDetails  productDetails = adminService.getProductDetails(id);
 		
 		return new ResponseEntity<ProductDetails>(productDetails, HttpStatus.OK);
+	}
+	
+	@PutMapping("/admin/product/update/{id}")
+	public ResponseEntity<Product> updateProductHandler(@PathVariable Integer id, @RequestBody Product product) throws ProductException{
+		
+		Product updatedProduct = adminService.updateProduct(id, product);
+		
+		return new ResponseEntity<Product>(updatedProduct, HttpStatus.ACCEPTED);
 	}
 	
 

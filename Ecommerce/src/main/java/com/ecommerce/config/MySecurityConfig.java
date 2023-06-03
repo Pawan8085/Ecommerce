@@ -23,7 +23,8 @@ public class MySecurityConfig {
 						"/ecommerce/admin/product/**",
 				"/ecommerce/admin/totaluser", 
 				"/ecommerce/admin/revenue",
-				"/ecommerce/admin/product/detail/**")
+				"/ecommerce/admin/product/detail/**",
+				"ecommerce/admin/product/update/**")
 				.hasAuthority("ADMIN")
 				.antMatchers("/ecommerce/user/login",
 						"/ecommerce/user/product/*/*",
