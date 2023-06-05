@@ -66,6 +66,12 @@ http://localhost:8080/ecommerce/admin/revenue
 ```
 http://localhost:8080/ecommerce/admin/product/detail/{id}
 ```
+### Update Product details
+`PUT ecommerce/admin/product/update/{id}`
+```
+http://localhost:8080/ecommerce/admin/product/update/{id}
+```
+
 
 &nbsp;
 
