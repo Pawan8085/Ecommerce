@@ -1,5 +1,5 @@
 # *Rest Api for Ecommerce application
-## An Individual project built within 2 week
+## An Individual project built within 2 weeks
 ### ER Diagram :
 
 ![Ecommerce_er](https://user-images.githubusercontent.com/101393436/230717165-fbecb33c-631b-408d-8fa9-0e03a8bb74d5.png)
