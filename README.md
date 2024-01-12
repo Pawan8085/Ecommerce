@@ -28,49 +28,49 @@
 
 ## ADMIN :-
 ### Register Admin
-`POST /ecommerce/admin/register`
+`POST /app/admin/register`
 ```
-http://localhost:8080/ecommerce/admin/register
+http://localhost:8080/app/admin/register
 ```
 ### Login Admin
-`POST /ecommerce/admin/login`
+`POST /app/admin/signIn`
 ```
-http://localhost:8080/ecommerce/admin/login
+http://localhost:8080/app/admin/signIn
 ```
 ### Add Category
-`POST /ecommerce/admin/category`
+`POST /app/admin/category`
 ```
-http://localhost:8080/ecommerce/admin/category
+http://localhost:8080/app/admin/category
 ```
 ### Get All Category
-`GET /ecommerce/admin/category`
+`GET /app/admin/category`
 ```
-http://localhost:8080/ecommerce/admin/category
+http://localhost:8080/app/admin/category
 ```
 ### Add Product to the Category
-`POST /ecommerce/admin/product/{id}`
+`POST /app/admin/product/{id}`
 ```
-http://localhost:8080/ecommerce/admin/product/{id}
+http://localhost:8080/app/admin/product/{id}
 ```
 ### Get total User count
-`GET /ecommerce/admin/totaluser`
+`GET /app/admin/totaluser`
 ```
-http://localhost:8080/ecommerce/admin/totaluser
+http://localhost:8080/app/admin/totaluser
 ```
 ### Get total Revenue
-`GET /ecommerce/admin/revenue`
+`GET /app/admin/revenue`
 ```
-http://localhost:8080/ecommerce/admin/revenue
+http://localhost:8080/app/admin/revenue
 ```
 ### Get Product detail
-`GET /ecommerce/admin/product/detail/{id}`
+`GET /app/admin/product/detail/{id}`
 ```
-http://localhost:8080/ecommerce/admin/product/detail/{id}
+http://localhost:8080/app/admin/product/detail/{id}
 ```
 ### Update Product details
-`PUT ecommerce/admin/product/update/{id}`
+`PUT app/admin/product/update/{id}`
 ```
-http://localhost:8080/ecommerce/admin/product/update/{id}
+http://localhost:8080/app/admin/product/update/{id}
 ```
 
 
@@ -78,62 +78,62 @@ http://localhost:8080/ecommerce/admin/product/update/{id}
 
 ## USER :-
 ### Register User
-`POST /ecommerce/user/register`
+`POST /app/user/register`
 ```
-http://localhost:8080/ecommerce/user/register
+http://localhost:8080/app/user/register
 ```
 ### Login User
-`POST /ecommerce/user/login`
+`POST /app/user/signIn`
 ```
-http://localhost:8080/ecommerce/user/login
+http://localhost:8080/app/user/signIn
 ```
 ### By Product
-`GET /ecommerce/user/product/{productid}/{quantity}`
+`GET /app/user/product/{productid}/{quantity}`
 ```
-http://localhost:8080/ecommerce/user/product/{productid}/{quantity}
+http://localhost:8080/app/user/product/{productid}/{quantity}
 ```
 ### Add Product to Cart
-`POST /ecommerce/user/cart/{productid}/{quantity}`
+`POST /app/user/cart/{productid}/{quantity}`
 ```
-http://localhost:8080/ecommerce/user/cart/{productid}/{quantity}
+http://localhost:8080/app/user/cart/{productid}/{quantity}
 ```
 ### By Product from Cart
-`GET /ecommerce/user/cart/{cartid}`
+`GET /app/user/cart/{cartid}`
 ```
-http://localhost:8080/ecommerce/user/cart/{cartid}
+http://localhost:8080/app/user/cart/{cartid}
 ```
 ### Get all from Cart 
-`GET /ecommerce/user/cart`
+`GET /app/user/cart`
 ```
-http://localhost:8080/ecommerce/user/cart
+http://localhost:8080/app/user/cart
 ```
 ### Get all from Order 
-`GET /ecommerce/user/orders`
+`GET /app/user/orders`
 ```
-http://localhost:8080/ecommerce/user/orders
+http://localhost:8080/app/user/orders
 ```
 ### Get all Products
-`GET /ecommerce/user/products`
+`GET /app/user/products`
 ```
-http://localhost:8080/ecommerce/user/products
+http://localhost:8080/app/user/products
 ```
 ### Search Product
-`GET /ecommerce/user/products/{keyword}`
+`GET /app/user/products/{keyword}`
 ```
-http://localhost:8080/ecommerce/user/products/{keyword}
+http://localhost:8080/app/user/products/{keyword}
 ```
 ### Search Product And filter by Rating
-`GET /ecommerce/user/products/{keyword}/{rating}`
+`GET /app/user/products/{keyword}/{rating}`
 ```
-http://localhost:8080/ecommerce/user/products/{keyword}/{rating}
+http://localhost:8080/app/user/products/{keyword}/{rating}
 ```
 ### Search Product And filter by Price
-`GET /ecommerce/user/products/{keyword}/{min}/{max}`
+`GET /app/user/products/{keyword}/{min}/{max}`
 ```
-http://localhost:8080/ecommerce/user/products/{keyword}/{min}/{max}
+http://localhost:8080/app/user/products/{keyword}/{min}/{max}
 ```
 ### Add Comment and Rating to the Product
-`POST /ecommerce/user/products/com/{productid}`
+`POST /app/user/products/com/{productid}`
 ```
-http://localhost:8080/ecommerce/user/products/com/{productid}
+http://localhost:8080/app/user/products/com/{productid}
 ```
