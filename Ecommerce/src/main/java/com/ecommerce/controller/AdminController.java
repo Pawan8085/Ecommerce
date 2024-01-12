@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ecommerce.dto.LoginDTO;
 import com.ecommerce.exceptions.AdminException;
 import com.ecommerce.exceptions.CategoryException;
 import com.ecommerce.exceptions.ProductException;
@@ -24,7 +23,7 @@ import com.ecommerce.model.ProductDetails;
 import com.ecommerce.service.AdminService;
 
 @RestController
-@RequestMapping("/ecommerce")
+@RequestMapping("/myApp")
 public class AdminController {
 	
 	@Autowired
@@ -33,25 +32,15 @@ public class AdminController {
 	
 	
 	@PostMapping("/admin/register")
-	public ResponseEntity<String> registerAdminHandler(@RequestBody Admin admin){
+	public ResponseEntity<Admin> registerAdminHandler(@RequestBody Admin admin){
 		
-		String message = adminService.registerAdmin(admin);
+		Admin savedAdmin = adminService.registerAdmin(admin);
+		return new ResponseEntity<Admin>(savedAdmin, HttpStatus.CREATED);
 		
-		return new ResponseEntity<String>(message, HttpStatus.CREATED);
 	}
 	
-	@GetMapping("/admin/login")
-	public ResponseEntity<String> loginAdminHandler() throws AdminException{
-		
-		String message = adminService.loginAdmin();
-		
-		return new ResponseEntity<String>(message, HttpStatus.OK);
-	}
 	
-	@GetMapping("/welcome")
-	String welcome() {
-		return "welcome";
-	}
+	
 	
 	@PostMapping("/admin/category")
 	public ResponseEntity<Category> saveCategoryHandler(@RequestBody Category category) throws AdminException{

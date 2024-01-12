@@ -2,7 +2,7 @@ package com.ecommerce.service;
 
 import java.util.List;
 
-import com.ecommerce.dto.LoginDTO;
+
 import com.ecommerce.exceptions.AdminException;
 import com.ecommerce.exceptions.CategoryException;
 import com.ecommerce.exceptions.ProductException;
@@ -13,9 +13,9 @@ import com.ecommerce.model.ProductDetails;
 
 public interface AdminService {
 	
-	String registerAdmin(Admin admin);
+	Admin registerAdmin(Admin admin);
 	
-	String loginAdmin()throws AdminException;
+	
 	Category addCategory(Category category)throws AdminException;
 	
 	List<Category> getAllCategory()throws CategoryException;

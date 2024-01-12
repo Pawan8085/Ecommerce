@@ -12,19 +12,18 @@ import org.springframework.stereotype.Service;
 import com.ecommerce.exceptions.CartException;
 import com.ecommerce.exceptions.CommentException;
 import com.ecommerce.exceptions.ProductException;
-import com.ecommerce.model.Admin;
 import com.ecommerce.model.Cart;
 import com.ecommerce.model.Comment;
 import com.ecommerce.model.Orders;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductDetails;
 import com.ecommerce.model.User;
-import com.ecommerce.repository.CartRepository;
-import com.ecommerce.repository.CommentRepository;
-import com.ecommerce.repository.OrderRepository;
-import com.ecommerce.repository.ProductDetailsRespository;
-import com.ecommerce.repository.ProductRepository;
-import com.ecommerce.repository.UserRepository;
+import com.ecommerce.repo.CartRepository;
+import com.ecommerce.repo.CommentRepository;
+import com.ecommerce.repo.OrderRepository;
+import com.ecommerce.repo.ProductDetailsRespository;
+import com.ecommerce.repo.ProductRepository;
+import com.ecommerce.repo.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService{

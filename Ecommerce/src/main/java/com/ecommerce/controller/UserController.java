@@ -23,7 +23,7 @@ import com.ecommerce.model.User;
 import com.ecommerce.service.UserService;
 
 @RestController
-@RequestMapping("/ecommerce")
+@RequestMapping("/myApp")
 public class UserController {
 	
 	@Autowired
@@ -76,6 +76,7 @@ public class UserController {
 		
 		return new ResponseEntity<List<Orders>>(orders, HttpStatus.OK);
 	}
+	
 	
 	
 	@GetMapping("/user/products")

@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.ecommerce.dto.LoginDTO;
+
 import com.ecommerce.exceptions.AdminException;
 import com.ecommerce.exceptions.CategoryException;
 import com.ecommerce.exceptions.ProductException;
@@ -20,17 +20,17 @@ import com.ecommerce.model.Admin;
 import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductDetails;
-import com.ecommerce.repository.AdminRespository;
-import com.ecommerce.repository.CategoryRepository;
-import com.ecommerce.repository.ProductDetailsRespository;
-import com.ecommerce.repository.ProductRepository;
-import com.ecommerce.repository.UserRepository;
+import com.ecommerce.repo.AdminRepository;
+import com.ecommerce.repo.CategoryRepository;
+import com.ecommerce.repo.ProductDetailsRespository;
+import com.ecommerce.repo.ProductRepository;
+import com.ecommerce.repo.UserRepository;
 
 @Service
 public class AdminServiceImpl implements AdminService{
 	
 	@Autowired
-	private AdminRespository adminRespository;
+	private AdminRepository adminRepository;
 	
 	@Autowired
 	private CategoryRepository categoryRepository;
@@ -49,12 +49,12 @@ public class AdminServiceImpl implements AdminService{
 	
 	
 	@Override
-	public String registerAdmin(Admin admin) {
-		admin.setPassword(passwordEncoder.encode(admin.getPassword()));
+	public Admin registerAdmin(Admin admin) {
 		
-	    adminRespository.save(admin);
+		admin.setPassword(passwordEncoder.encode(admin.getPassword()));
+	   return adminRepository.save(admin);
 	    
-	    return "You have been Registerd!";
+	   
 	}
 
 	
@@ -62,7 +62,7 @@ public class AdminServiceImpl implements AdminService{
 	public Category addCategory(Category category) throws AdminException {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String userName = authentication.getName();
-		Optional<Admin> optAdmin = adminRespository.findByEmail(userName);
+		Optional<Admin> optAdmin = adminRepository.findByEmail(userName);
 		
 		if(optAdmin.isPresent()) {
 			
@@ -89,22 +89,6 @@ public class AdminServiceImpl implements AdminService{
 		else throw new CategoryException("Category not found!");
 	}
 
-	@Override
-	public String loginAdmin() throws AdminException {
-		
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String userName = authentication.getName();
-		Optional<Admin> optAdmin = adminRespository.findByEmail(userName);
-		
-		if(optAdmin.isPresent()) {
-			
-			Admin admin = optAdmin.get();
-			
-			return "Hi "+admin.getFirstName()+" "+admin.getLastName();
-		}
-		
-		throw new AdminException("Invalid admin credentials!");
-	}
 
 
 	@Override
